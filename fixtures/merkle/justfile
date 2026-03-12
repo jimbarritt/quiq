@@ -6,5 +6,11 @@ build:
 test:
     ./gradlew test
 
+acceptance-cuke:
+    ./gradlew acceptanceTest
+
+dist:
+    ./gradlew shadowJar
+
 run *ARGS:
     ./gradlew run --args="{{ARGS}}"
