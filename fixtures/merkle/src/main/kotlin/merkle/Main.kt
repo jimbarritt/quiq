@@ -13,6 +13,10 @@ import merkle.domain.Side
 
 fun main(args: Array<String>) {
     val stdin = generateSequence(::readLine).toList()
+    if (stdin.isEmpty()) {
+        System.err.println("Error: no items provided on stdin")
+        return
+    }
     val command = CliInputAdapter.parse(args, stdin)
 
     val buildTree = BuildTreeUseCase()

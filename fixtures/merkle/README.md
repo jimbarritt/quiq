@@ -30,8 +30,9 @@ adapters/
 ## Development
 
 ```sh
-./gradlew test   # run unit tests
-./gradlew run    # run the app
+just        # run tests (default)
+just build  # build
+just run root                        # compute merkle root
+just run "proof --item alice"        # generate proof
+just run "verify --item alice --proof right:<hash>,..."  # verify proof
 ```
-
-> First time: run `gradle wrapper` to generate `./gradlew`
