@@ -47,12 +47,20 @@ tasks.named<Copy>("processAcceptanceResources") {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-tasks.register<Test>("acceptanceTest") {
+tasks.register<Test>("acceptanceCuke") {
     description = "Runs Cucumber acceptance tests"
     group = "verification"
     testClassesDirs = sourceSets["acceptance"].output.classesDirs
     classpath = sourceSets["acceptance"].runtimeClasspath
     useJUnitPlatform()
+    systemProperty(
+        "cucumber.plugin",
+        "json:build/reports/tests/acceptance/cucumber/cucumber.json"
+    )
+    reports {
+        html.required.set(false)
+        junitXml.required.set(false)
+    }
 }
 
 tasks.shadowJar {
