@@ -8,6 +8,8 @@ test:
 
 acceptance-cuke:
     ./gradlew acceptanceCuke
+    quiq --report-cuke
+    open build/reports/tests/acceptance/cucumber/quiq-report.html
 
 dist:
     ./gradlew shadowJar
