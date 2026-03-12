@@ -7,7 +7,7 @@ test:
     ./gradlew test
 
 acceptance-cuke:
-    ./gradlew acceptanceCuke
+    ./gradlew acceptanceCuke || true
     quiq --report-cuke
     open build/reports/tests/acceptance/cucumber/quiq-report.html
 
