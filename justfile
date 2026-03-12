@@ -1,10 +1,10 @@
 default: build
 
 build:
-    cargo build
+    cargo build --manifest-path cli/Cargo.toml
 
 run:
-    cargo run
+    cargo run --manifest-path cli/Cargo.toml
 
 publish:
-    cargo publish
+    cargo publish --manifest-path cli/Cargo.toml
