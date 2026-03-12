@@ -1,6 +1,6 @@
 [package]
 name = "quiq"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "A TUI test runner that auto-detects your project and runs tests with beautiful results"
 license = "MIT"
