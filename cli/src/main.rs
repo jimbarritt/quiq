@@ -1,3 +1,5 @@
+mod report_cuke;
+
 use crossterm::{
     event::{self, Event, KeyCode},
     execute,
@@ -13,6 +15,18 @@ use ratatui::{
 use std::io;
 
 fn main() -> io::Result<()> {
+    let args: Vec<String> = std::env::args().collect();
+
+    if let Some(pos) = args.iter().position(|a| a == "--report-cuke") {
+        let path = args.get(pos + 1).map(String::as_str);
+        report_cuke::run(path);
+        return Ok(());
+    }
+
+    run_tui()
+}
+
+fn run_tui() -> io::Result<()> {
     enable_raw_mode()?;
     let mut stdout = io::stdout();
     execute!(stdout, EnterAlternateScreen)?;
