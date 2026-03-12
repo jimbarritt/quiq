@@ -1,4 +1,5 @@
 mod report_cuke;
+mod report_junit;
 
 use crossterm::{
     event::{self, Event, KeyCode},
@@ -20,6 +21,12 @@ fn main() -> io::Result<()> {
     if let Some(pos) = args.iter().position(|a| a == "--report-cuke") {
         let path = args.get(pos + 1).map(String::as_str);
         report_cuke::run(path);
+        return Ok(());
+    }
+
+    if let Some(pos) = args.iter().position(|a| a == "--report-junit") {
+        let path = args.get(pos + 1).map(String::as_str);
+        report_junit::run(path);
         return Ok(());
     }
 

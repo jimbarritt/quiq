@@ -5,6 +5,8 @@ build:
 
 test:
     ./gradlew test
+    quiq --report-junit
+    open build/reports/tests/unit/quiq-report.html
 
 acceptance-cuke:
     ./gradlew acceptanceCuke || true
